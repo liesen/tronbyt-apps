@@ -1,0 +1,8 @@
+---
+id: floorislava
+name: Foor is lava
+summary: Shows when the floor is lava
+desc: Floor is lava when HH == MM. Pull your feet up!
+author: billie
+fileName: floorislava.star
+packageName: floorislava
