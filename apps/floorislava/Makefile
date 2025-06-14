@@ -3,13 +3,12 @@ PROJECT := floorislava
 SOURCE := $(PROJECT).star
 IMAGE := $(PROJECT).webp
 
-DEVICE_ID := cunningly-immediate-justified-kinglet-da9
-
-.PHONY: $(PROJECT).webp push
+.PHONY: $(IMAGE) serve
 
 
-floorislava.webp: $(SOURCE)
+$(IMAGE): $(SOURCE)
 	pixlet render $<
 	
-push: $(IMAGE)
-	pixlet push $(DEVICE_ID) $<
+serve: $(IMAGE)
+	pixlet serve $(SOURCE)
+	
