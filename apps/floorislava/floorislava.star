@@ -7,6 +7,7 @@ load("time.star", "time")
 load("file.star", "file")
 
 LAVA_IMAGE = file.read("lava.gif")
+floor_is_text = file.read("text")
 
 def get_minutes_until_floor_is_lava(hour, minute):
     if minute == hour:
@@ -24,7 +25,7 @@ def main():
     timezone = "Europe/Stockholm"
     now = time.now().in_location(timezone)
     minutes_until_floor_is_lava = get_minutes_until_floor_is_lava(now.hour, now.minute)
-    floor_is_text = "Golvet är lava"
+    # floor_is_text = "Golvet är lava"
 
     return render.Root(
         child = render.Stack(
