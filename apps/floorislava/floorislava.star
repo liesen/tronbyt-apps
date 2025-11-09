@@ -44,7 +44,7 @@ def get_minutes_until_floor_is_ice(now):
 
 
 def main(config):
-    timezone = config.get("timezone") or "Europe/Stockholm"
+    timezone = config.get("timezone", "Europe/Stockholm")
     now = time.now().in_location(timezone)
     minutes_until_floor_is_lava = get_minutes_until_floor_is_lava(now)
     minutes_until_floor_is_ice = get_minutes_until_floor_is_ice(now)
