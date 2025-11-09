@@ -49,19 +49,16 @@ def main(config):
     minutes_until_floor_is_lava = get_minutes_until_floor_is_lava(now)
     minutes_until_floor_is_ice = get_minutes_until_floor_is_ice(now)
 
-    children = [
-        # render.Image(src=LAVA_IMAGE, width=64, height=32),
-        render.Column(
+    return render.Root(
+        child=render.Column(
             children=[
-                # render.Text(content=now.format("15:04"), color="#ffffff"),
-                # render.Box(width=64, height=1, color="#ffffff"),
                 render.WrappedText(
                     content="Golvet är lava om {} minuter".format(
                         minutes_until_floor_is_lava
                     ),
                     color="#fc5e03",
                 ),
-                render.Box(width=64, height=1, color="#666666"),
+                render.Box(width=64, height=1, color="#333333"),
                 render.WrappedText(
                     content="Golvet är is om {} minuter".format(
                         minutes_until_floor_is_ice
@@ -69,10 +66,5 @@ def main(config):
                     color="#03fcb1",
                 ),
             ],
-        ),
-    ]
-    return render.Root(
-        child=render.Stack(
-            children=children,
-        ),
+        )
     )
