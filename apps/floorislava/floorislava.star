@@ -39,8 +39,9 @@ def get_minutes_until_floor_is_ice(now):
     for i in range(1, 24):
         h = (now.hour + i) % 24
         m = (h % 10) * 10 + (h // 10)
+
         if m < 60:
-            return i * 60 + (60 - now.minute) + m
+            return i * 60 + (m - now.minute)
 
 
 def main(config):
