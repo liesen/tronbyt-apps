@@ -54,14 +54,14 @@ def main(config):
         child=render.Column(
             children=[
                 render.WrappedText(
-                    content="Golvet är lava om {} minuter".format(
+                    content="Golvet är lava om {} min".format(
                         minutes_until_floor_is_lava
                     ),
                     color="#fc5e03",
                 ),
                 render.Box(width=64, height=1, color="#333333"),
                 render.WrappedText(
-                    content="Golvet är is om {} minuter".format(
+                    content="Golvet är is om {} min".format(
                         minutes_until_floor_is_ice
                     ),
                     color="#03fcb1",
