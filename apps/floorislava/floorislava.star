@@ -24,7 +24,7 @@ def get_minutes_until_floor_is_lava(now):
     # minute > hour
     # Next event is at next hour:next hour
     next_hour = (now.hour + 1) % 24
-    return (60 - now.minute) + now.next_hour
+    return (60 - now.minute) + next_hour
 
 
 def get_minutes_until_floor_is_ice(now):
