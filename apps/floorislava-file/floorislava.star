@@ -10,8 +10,8 @@ load("time.star", "time")
 load("file.star", "file")
 print(file.cwd())
 
-load("lava.gif", "file")
-lava = file.readall()
+load("lava.gif", lava="file")
+lava_im = lava.readall()
 
 LAVA_IMAGE = file.read("lava.gif")
 # floor_is_text = file.read("text")
