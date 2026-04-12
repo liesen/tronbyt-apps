@@ -4,16 +4,12 @@
 # The FLOOR IS ICE when the hours on the clock equals the minutes reversed e.g.
 # 01:10, 02:20, 10:01, 22:22, 00:00
 
-load("encoding/base64.star", "base64")
 load("render.star", "render")
 load("time.star", "time")
-load("file.star", "file")
-print(file.cwd())
 
-load("lava.gif", lava="file")
-lava_im = lava.readall()
+load("lava.gif", lava_asset="file")
+LAVA_IMAGE = lava_asset.readall()
 
-LAVA_IMAGE = file.read("lava.gif")
 # floor_is_text = file.read("text")
 
 
