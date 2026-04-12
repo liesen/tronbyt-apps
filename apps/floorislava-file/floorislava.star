@@ -8,6 +8,7 @@ load("encoding/base64.star", "base64")
 load("render.star", "render")
 load("time.star", "time")
 load("file.star", "file")
+print(file.cwd())
 
 LAVA_IMAGE = file.read("lava.gif")
 # floor_is_text = file.read("text")
