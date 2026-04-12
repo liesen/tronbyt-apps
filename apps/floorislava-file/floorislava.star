@@ -7,8 +7,8 @@
 load("render.star", "render")
 load("time.star", "time")
 
-load("lava.gif", lava_asset="file")
-LAVA_IMAGE = lava_asset.readall()
+load("lava.gif", lava_image_file="file")
+lava_image = lava_image_file.readall("rb")
 
 # floor_is_text = file.read("text")
 
@@ -56,7 +56,7 @@ def main(config):
                 # Floor is lava
                 render.Stack(
                     children=[
-                        render.Image(src=LAVA_IMAGE, width=64, height=16),
+                        render.Image(src=lava_image, width=64, height=16),
                         render.WrappedText(
                             content="Golvet är lava om {} minuter".format(
                                 minutes_until_floor_is_lava
