@@ -4,6 +4,7 @@
 # The FLOOR IS ICE when the hours on the clock equals the minutes reversed e.g.
 # 01:10, 02:20, 10:01, 22:22, 00:00
 
+load("random.star", "random")
 load("render.star", "render")
 load("time.star", "time")
 
@@ -47,7 +48,7 @@ def main(config):
     now = time.now().in_location(timezone)
     minutes_until_floor_is_lava = get_minutes_until_floor_is_lava(now)
     minutes_until_floor_is_ice = get_minutes_until_floor_is_ice(now)
-    
+
     if minutes_until_floor_is_lava == 0:
         floor_is_lava_widget = render.Stack(
             children=[
@@ -60,8 +61,15 @@ def main(config):
             ]
         )
     else:
+        # Easter egg
+        noun = "lava"
+
+        if random.float() < 0.01:
+            noun = "bajs"
+
         floor_is_lava_widget = render.WrappedText(
-            content="Golvet är lava om {} minuter".format(
+            content="Golvet är {} om {} minuter".format(
+                noun,
                 minutes_until_floor_is_lava
             ),
             color="#fc5e03",
