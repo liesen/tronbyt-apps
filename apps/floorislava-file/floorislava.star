@@ -8,7 +8,7 @@ load("render.star", "render")
 load("time.star", "time")
 
 load("lava.gif", lava_image_file="file")
-lava_image = lava_image_file.readall("rb")
+lava_image = lava_image_file.readall("r")
 
 # floor_is_text = file.read("text")
 

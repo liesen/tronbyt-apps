@@ -4,13 +4,11 @@
 # The FLOOR IS ICE when the hours on the clock equals the minutes reversed e.g.
 # 01:10, 02:20, 10:01, 22:22, 00:00
 
-load("encoding/base64.star", "base64")
 load("render.star", "render")
 load("time.star", "time")
-# load("file.star", "file")
 
-# LAVA_IMAGE = file.read("lava.gif")
-# floor_is_text = file.read("text")
+load("lava.gif", lava_image_file="file")
+lava_image = lava_image_file.readall("r")
 
 
 def get_minutes_until_floor_is_lava(now):
@@ -49,16 +47,30 @@ def main(config):
     now = time.now().in_location(timezone)
     minutes_until_floor_is_lava = get_minutes_until_floor_is_lava(now)
     minutes_until_floor_is_ice = get_minutes_until_floor_is_ice(now)
+    
+    if minutes_until_floor_is_lava == 0:
+        floor_is_lava_widget = render.Stack(
+            children=[
+                render.Image(src=lava_image, width=64, height=16),
+                render.WrappedText(
+                    content="Golvet är\nlava!",
+                    color="#ffffff",
+                    align="center",
+                ),
+            ]
+        )
+    else:
+        floor_is_lava_widget = render.WrappedText(
+            content="Golvet är lava om {} minuter".format(
+                minutes_until_floor_is_lava
+            ),
+            color="#fc5e03",
+        )
 
     return render.Root(
         child=render.Column(
             children=[
-                render.WrappedText(
-                    content="Golvet är lava om {} min".format(
-                        minutes_until_floor_is_lava
-                    ),
-                    color="#fc5e03",
-                ),
+                floor_is_lava_widget,
                 render.Box(width=64, height=1, color="#333333"),
                 render.WrappedText(
                     content="Golvet är is om {} min".format(
