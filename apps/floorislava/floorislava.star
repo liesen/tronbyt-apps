@@ -64,7 +64,7 @@ def main(config):
         # Easter egg
         noun = "lava"
 
-        if random.float() < 0.01:
+        if random.float() < 0.03:
             noun = "bajs"
 
         floor_is_lava_widget = render.WrappedText(
@@ -77,7 +77,7 @@ def main(config):
 
     ice_noun = "is"
 
-    if random.float() < 0.01:
+    if random.float() < 0.03:
         ice_noun = "fis"
 
     return render.Root(
