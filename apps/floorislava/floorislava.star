@@ -75,13 +75,19 @@ def main(config):
             color="#fc5e03",
         )
 
+    ice_noun = "is"
+
+    if random.float() < 0.01:
+        ice_noun = "fis"
+
     return render.Root(
         child=render.Column(
             children=[
                 floor_is_lava_widget,
                 render.Box(width=64, height=1, color="#333333"),
                 render.WrappedText(
-                    content="Golvet är is om {} min".format(
+                    content="Golvet är {} om {} min".format(
+                        ice_noun,
                         minutes_until_floor_is_ice
                     ),
                     color="#03fcb1",
